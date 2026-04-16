@@ -1,0 +1,134 @@
+<!--File: index.html
+Project: Flashcard creator
+Author: Jose Ron Coka
+History: Version 1.0 April 15, 2026-->
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Creator</title>
+
+  <!--Link to CSS file-->
+  <link rel="stylesheet" href="./styles.css">
+
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="content">
+      <div class="divFlexContainer">
+        <h2 class="navTitle"><a href="index.html">Flashcard Creator</a></h2>
+
+        <!--Navigation Links on navbar-->
+        <nav class="navbar">
+          <a href="profile.html">Profile</a>
+        </nav>
+      </div>
+    </div>
+
+
+
+  </header>
+
+  <!--PHP Code for Database Connection
+    <?php
+        $user="root";
+        $password="";
+        $database="mapflashcard";
+        $table="Maps_2021";
+
+        print(" <h1>$table</h1>\n>");
+        
+        $mydb=newsqli('localhost',$user,$password,$database);
+        if ($mydb->connect_error){
+            die("Failed to connect to MYSQL: ".$mydb->connect_error)
+        }
+        //Use Implode to create a java script array with row form database. add each index
+        index, name, URL to a separate Javascript Array that we can use in the game. 
+    ?>-->
+
+  <section class="introduction">
+    <div class="content">
+      <h3>Welcome to the Flash Card Creator Website.</h3>
+      <p>
+        This website allows you to create flashcards for any subject you want. You can create flashcards for
+        studying, teaching, or just for fun. You can also share your flashcards with others and use flashcards
+        created by other users. The possibilities are endless! So get started and create your own flashcards
+        today!
+      </p>
+    </div>
+
+  </section>
+
+
+ <section class="flashcardList">
+    <div class="content">
+      <h3>Flashcard List</h3>
+      <p>
+        Here you can see a list of the flashcards available on the website. You can click on any flashcard to edit
+        it or delete it. You can also create a new flashcard by clicking on the "Create New Flashcard" button.
+      </p>
+      <div class="divFlexContainer">
+        <div class="divPanel">
+            <h3>Flashcards by Popularity</h3>
+            <h4>Flashcard 1</h4>
+            <p>Subject: Math</p>
+            <p>Popularity: Number of responses</p>
+            <p>Your Score: 0</p>
+        </div>
+        <div class="divPanel">
+            <h3>Flashcards by Random</h3>
+            <h4>Flashcard 2</h4>
+            <p>Subject: Science</p>
+            <p>Popularity: Number of responses</p>
+            <p>Your Score: 0</p>
+        </div>
+      </div>
+    </div>
+ </section>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+<footer>
+  <div class="content">
+    <div class="divFlexContainer">
+      <!--Navigation on Footer-->
+      <div class="footerDivColumn">
+        <a class="footerNav" href="index.html">Home</a>
+        <a class="footerNav" href="profile.html">Profile</a>
+      </div>
+
+      <!--Website Information-->
+      <div class="footerDivColumn">
+        <p>© 2026 Jose Ron Coka. All rights reserved.</p>
+      </div>
+
+      <!--Contact Information-->
+      <div class="footerDivColumn">
+        <p class="bold">Contact Information:</p>
+
+        <div class="footerLink">
+          <a href="mailto:joseroncoka@gmail.com" target="_blank">
+            <img class="logoLink" src="Assets/Images/Envelope.svg" alt="GitHub Logo" width="40" />
+          </a>
+          <a href="https://github.com/JoseRonCoka?" target="_blank">
+            <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="40"/>
+         </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

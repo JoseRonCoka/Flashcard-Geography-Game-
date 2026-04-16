@@ -4,16 +4,30 @@ Author: Jose Ron Coka
 History: Version 2.0 April 02, 2026. Finalized upgraded version*/
 
 //We set the variables
+
+//Variables for the buttons
 var option1;
 var option2;
 var option3;
 var option4;
-var mapImage;
+
+//Array for the buttons, so we can manipulate them easier.
 var options = new Array(4);
-var counter = 0;
-var globalScore = [0];
+
+//Variable to make order of buttons global
 var buttonOrderGlobal = [];
+
+//variable for image displayed
+var mapImage;
+
+//Counter for the questions, it starts at 0 and goes to 5, when it reaches 6, the final screen is displayed.
+var counter = 0;
+//Global score variable, it starts with 0 and is updated with every question, the final score is displayed at the end of the game.
+var globalScore = [0];
+
+//Shuffle of the 20 countries 
 const imageShuffle = shuffle(20);
+//We separate the first 5 images, which are the ones that will be used in the game, and the other 15, which will be used as options for the answers.
 const imageCorrect = imageShuffle.slice(0, 5);
 const imageOptions = imageShuffle.slice(5, 20);
 
@@ -67,18 +81,24 @@ var url = [
 function start() {
   mapImage = document.getElementById("mapPosition");
 
+  //Extract the buttons from the HTML and store them in variables, so we can manipulate them later.
   option1 = document.getElementById("opt1");
   option2 = document.getElementById("opt2");
   option3 = document.getElementById("opt3");
   option4 = document.getElementById("opt4");
 
+  //options is an array containing the 4 buttons
   options[0] = option1;
   options[1] = option2;
   options[2] = option3;
   options[3] = option4;
 
+  //nextButton starts the game currently 
+
   var button = document.getElementById("nextButton");
   button.addEventListener("click", nextFunction, false);
+
+  //Submit checks answer and updates score, also changes the options style to show the correct answer and wrong answers.
 
   var subButton = document.getElementById("submit");
   subButton.addEventListener("click", subFunction, false);
@@ -107,10 +127,10 @@ function setImage(mapPicture, index) {
   buttonOrderGlobal[2] = buttonOrder[2];
   buttonOrderGlobal[3] = buttonOrder[3];
 
-  options[buttonOrderGlobal[0]].setAttribute("class", "normal");
-  options[buttonOrderGlobal[1]].setAttribute("class", "normal");
-  options[buttonOrderGlobal[2]].setAttribute("class", "normal");
-  options[buttonOrderGlobal[3]].setAttribute("class", "normal");
+  options[buttonOrderGlobal[0]].labels[0].setAttribute("class", "normal");
+  options[buttonOrderGlobal[1]].labels[0].setAttribute("class", "normal");
+  options[buttonOrderGlobal[2]].labels[0].setAttribute("class", "normal");
+  options[buttonOrderGlobal[3]].labels[0].setAttribute("class", "normal");
 
   setOptions(buttonOrder[0]);
   setOptions(buttonOrder[1]);
@@ -121,27 +141,28 @@ function setImage(mapPicture, index) {
   setCorrect(buttonOrder[0], index);
 }
 function setOptions(buttonInd) {
-  //This function give random values to the options.
+  //This function give random values to the options. It takes the options from the remaining 15 image options. 
   var ranInd = imageOptions[getRandomInt(0, 15)];
   var optionButton = options[buttonInd];
-  optionButton.value = mapName[ranInd];
+  //Change label text for radio button
+  optionButton.labels[0].textContent = mapName[ranInd];
 }
 
 function setCorrect(buttonInd, correctInd) {
   //This function sets up the correct answer in the options.
   var correctButton = options[buttonInd];
-  correctButton.value = mapName[correctInd];
+  correctButton.labels[0].textContent = mapName[correctInd];
 }
 
 function subFunction() {
   //This function deals with the Submit aspect, it checks if the answer is correct, displays score and change the options style.
-  if (document.getElementById("optA").checked) {
+  if (document.getElementById("opt1").checked) {
     var answer = 0;
-  } else if (document.getElementById("optB").checked) {
+  } else if (document.getElementById("opt2").checked) {
     var answer = 1;
-  } else if (document.getElementById("optC").checked) {
+  } else if (document.getElementById("opt3").checked) {
     var answer = 2;
-  } else if (document.getElementById("optD").checked) {
+  } else if (document.getElementById("opt4").checked) {
     var answer = 3;
   }
 
@@ -156,10 +177,11 @@ function subFunction() {
       "Your answer was incorrect. Your Score is=" + score;
   }
 
-  options[buttonOrderGlobal[0]].setAttribute("class", "rightAnswer");
-  options[buttonOrderGlobal[1]].setAttribute("class", "wrongAnswer");
-  options[buttonOrderGlobal[2]].setAttribute("class", "wrongAnswer");
-  options[buttonOrderGlobal[3]].setAttribute("class", "wrongAnswer");
+  
+  options[buttonOrderGlobal[0]].labels[0].setAttribute("class", "rightAnswer");
+  options[buttonOrderGlobal[1]].labels[0].setAttribute("class", "wrongAnswer");
+  options[buttonOrderGlobal[2]].labels[0].setAttribute("class", "wrongAnswer");
+  options[buttonOrderGlobal[3]].labels[0].setAttribute("class", "wrongAnswer");
 }
 
 function setFinalImage(mapPicture) {
@@ -208,6 +230,8 @@ function shuffle(max) {
     array[i] = i;
   }
 
+  console.log(array);
+
   var lastIndex = array.length - 1;
 
   while (lastIndex > 0) {
@@ -216,6 +240,7 @@ function shuffle(max) {
     array[lastIndex] = array[randomIndex];
     array[randomIndex] = temp;
     lastIndex -= 1;
+    console.log(array);
   }
   return array;
 }

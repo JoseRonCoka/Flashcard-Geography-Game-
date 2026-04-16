@@ -46,41 +46,130 @@ h6 {
 }
 
 /* ||General Styles */
-body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 12pt;
-            text-align: center;
-            background-color: lightgray;}
-      img {text-align: center;
-            border:1px solid black;
-            max-width: 30em; 
-            max-height:30em;}
 
-      .center {text-align: center;}
-      .centerTable {margin-left: auto;
-                    margin-right: auto;}
+header {
+  background-color: rgb(43, 181, 146);
+  padding: 1rem 1rem;
+  h2 {
+    color: white;
+    text-decoration: none;
+    margin: 0 auto;
+  }
+}
 
-      .right {text-align: right;}
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  background-color: lightgray;
+}
 
-      table {text-align: center;}
+footer {
+  /*display: flex;*/
+  align-items: center;
+  justify-content: center;
+  background-color:  rgb(20, 121, 96);
+  /*padding: 1rem 1rem;*/
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 100%;
+}
 
-      input {font-size: 20px;
-            background-color: gray;
-            color: white;}
-      .normal {background-color: gray;
-                pointer-events: none;}
+nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
 
-      .rightAnswer{background-color: green;
-                    pointer-events: none;}
-      .wrongAnswer{background-color: red;
-                    pointer-events: none;}
+nav a {
+  text-decoration: none;
+  background-color: rgb(12, 81, 133);
+  color: white;
+  padding: 1em 1em;
+  /*8px 5px;*/
+  border-radius: 5px;
+  text-align: right;
+}
 
-      .no-click {pointer-events: none;}
+.navbar a {
+  text-decoration: none;
+  color: white;
+  border: solid black 1px;
+  font-weight: bold;
+}
 
+.navTitle a{
+  text-decoration: none;
+  color: white;
+  /*border: solid black 1px;*/
+  font-weight: bold;
+  align-items: flex-start;
+}
+
+.navTitle a:hover{
+  color: white;
+}
+
+
+
+
+
+
+
+img {
+  text-align: center;
+  border: 1px solid black;
+  max-width: 30em;
+  max-height: 30em;
+}
+
+.center {
+  text-align: center;
+}
+.centerTable {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  text-align: right;
+}
+
+table {
+  text-align: center;
+}
+
+input {
+  font-size: 1rem;
+  background-color: gray;
+  color: white;
+}
+.normal {
+  /*background-color: gray;*/
+  pointer-events: none;
+}
+
+.rightAnswer {
+  background-color: green;
+  pointer-events: none;
+}
+.wrongAnswer {
+  background-color: red;
+  pointer-events: none;
+}
+
+.no-click {
+  pointer-events: none;
+}
 
 /* ||Layout Utilities */
 
 /*Content Wrapper*/
-.content{
+.content {
   width: 100%;
   max-width: 1000px;
   /*min-width: 350px;*/
@@ -99,7 +188,6 @@ body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Luci
   justify-content: center;
   /* centre them horizontally */
   align-items: center;
-
 }
 .divPanel {
   padding: 0.5rem 1rem;
@@ -126,33 +214,37 @@ footer div {
     margin-bottom: 0.5rem;
   }
 
-  p{
+  p {
     margin-bottom: 0.5rem;
   }
 }
 
-.footerDivColumn{
+.footerDivColumn {
+  border: solid black 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   text-align: justify;
-  padding: 0.25rem 0.25rem;
+  /*padding: 0.25rem 0.25rem;
   /*border: 2px black solid;*/
   width: 100%;
   text-decoration: none;
-  margin:0;
+  margin: 0;
 }
 
 .footerLink {
+  border: solid yellow 1px;
+  padding: 0 0; 
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center; /*Horizontal alignment for logo links*/
   align-items: center; /*Vertical alignment for logo links*/
   gap: 1rem;
+  
 }
 
-.footerNav hover{
+.footerNav:hover {
   text-decoration: underline;
 }

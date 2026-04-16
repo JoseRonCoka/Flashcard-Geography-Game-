@@ -1,0 +1,142 @@
+<!--File: createFlashcard.html
+Project: Flashcard creator
+Author: Jose Ron Coka
+History: Version 1.0 April 15, 2026-->
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Creator</title>
+
+  <!--Link to CSS file-->
+  <link rel="stylesheet" href="./styles.css">
+
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="content">
+      <div class="divFlexContainer">
+        <h2 class="navTitle"><a href="index.html">Flashcard Creator</a></h2>
+
+        <!--Navigation Links on navbar-->
+        <nav class="navbar">
+          <a href="profile.html">Profile</a>
+        </nav>
+      </div>
+    </div>
+
+
+
+  </header>
+
+  <!--PHP Code for Database Connection
+    <?php
+        $user="root";
+        $password="";
+        $database="mapflashcard";
+        $table="Maps_2021";
+
+        print(" <h1>$table</h1>\n>");
+        
+        $mydb=newsqli('localhost',$user,$password,$database);
+        if ($mydb->connect_error){
+            die("Failed to connect to MYSQL: ".$mydb->connect_error)
+        }
+        //Use Implode to create a java script array with row form database. add each index
+        index, name, URL to a separate Javascript Array that we can use in the game. 
+    ?>-->
+
+  <section class="introduction">
+    <div class="content">
+      <h3>Welcome to the Flash Card Creator </h3>
+      <p>
+        Here you can create flashcards for any subject you want.
+        Follow the steps below:
+      </p>
+      <ol>
+        <li></li>
+      </ol>
+    </div>
+
+  </section>
+
+
+ <section class="inputFlashcard">
+    <div class="content">
+
+        <div>
+            <h3>Name of Flashcard</h3>
+            <label for="name">Enter the name you want your Flashcard to have:</label>
+            <input type="text" id="name" name="name" maxlength="100" size="20"><br>
+            <label for="subject">Enter the subject of your Flashcard:</label>
+            <input type="text" id="subject" name="subject" maxlength="100" size="20"><br></br>
+            
+
+        </div>
+      
+      <div class="divFlexContainer">
+        <div class="divPanel">
+            <h3>Flashcard 1</h3>
+            <label for="word1">Word 1</label>
+            <input type="text" id="word1" name="word1" maxlength="100" size="20"><br></br>
+        </div>
+        <div class="divPanel">
+            <h3>Flashcard Image </h3>
+
+            <p>Subject: Science</p>
+            <p>Popularity: Number of responses</p>
+            <p>Your Score: 0</p>
+        </div>
+      </div>
+
+      <a href="createFlashcard.html">Create New Flashcard</a>
+
+    </div>
+ </section>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+<footer>
+  <div class="content">
+    <div class="divFlexContainer">
+      <!--Navigation on Footer-->
+      <div class="footerDivColumn">
+        <a class="footerNav" href="index.html">Home</a>
+        <a class="footerNav" href="profile.html">Profile</a>
+      </div>
+
+      <!--Website Information-->
+      <div class="footerDivColumn">
+        <p>© 2026 Jose Ron Coka. All rights reserved.</p>
+      </div>
+
+      <!--Contact Information-->
+      <div class="footerDivColumn">
+        <p class="bold">Contact Information:</p>
+
+        <div class="footerLink">
+          <a href="mailto:joseroncoka@gmail.com" target="_blank">
+            <img class="logoLink" src="Assets/Images/Envelope.svg" alt="GitHub Logo" width="40" />
+          </a>
+          <a href="https://github.com/JoseRonCoka?" target="_blank">
+            <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="40"/>
+         </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>
