@@ -1,0 +1,188 @@
+<!--File: jr_MiniProject1Final
+Project: CSIS3020 Mini Project 1
+Author: Jose Ron Coka
+History: Version 3.0 November 6, 2021-->
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Game</title>
+
+  <!--Link to CSS file-->
+  <link rel="stylesheet" href="./styles.css">
+
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="content">
+      <div class="divFlexContainer">
+        <h2 class="navTitle">Home</h2>
+
+        <!--Navigation Links on navbar-->
+        <nav class="navbar">
+          <a href="">Profile</a>
+        </nav>
+      </div>
+    </div>
+
+
+
+  </header>
+
+  <!--PHP Code for Database Connection
+    <?php
+        $user="root";
+        $password="";
+        $database="mapflashcard";
+        $table="Maps_2021";
+
+        print(" <h1>$table</h1>\n>");
+        
+        $mydb=newsqli('localhost',$user,$password,$database);
+        if ($mydb->connect_error){
+            die("Failed to connect to MYSQL: ".$mydb->connect_error)
+        }
+        //Use Implode to create a java script array with row form database. add each index
+        index, name, URL to a separate Javascript Array that we can use in the game. 
+    ?>-->
+
+  <section class="introduction">
+    <div class="content">
+      <h3>Welcome to the World Countries Map Flashcard Game.</h3>
+      <p>
+        When you click the Next button the highlighted map of one country is going to load. Check an answer from Options
+        A to D.
+        Then click on Submit to check whether it was correct.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="counters">
+    <div class="content">
+      <div class="divFlexContainer">
+        <h3 id="count">Number of Maps seen= 0</h3>
+        <h3 id="scr">Your Score= 0</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="flashcard">
+    <div class="content">
+      <!--We display an image, so we change it later with the other images-->
+      <img id="mapPosition"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Mercator_projection_SW.jpg/640px-Mercator_projection_SW.jpg";
+        alt="Map picture" />
+    </div>
+
+    <section class="options">
+      <div class="content">
+
+      
+        <!--Second form element, for the answer option buttons.-->
+         <form action="#">
+        <div>
+          <div class="divFlexContainer">
+            <input id="opt1" type="radio" name="answer" value="Option A" >
+            <label for="opt1" id="labelA">Option A</label>
+            <input id="opt2" type="radio" name="answer" value="Option B">
+            <label for="opt2" id="labelB">Option B</label>
+          </div>
+          <div class="divFlexContainer">
+            <input id="opt3" type="radio" name="answer" value="Option C" >
+            <label for="opt3" id="labelC">Option C</label>
+            <input id="opt4" type="radio" name="answer" value="Option D">
+            <label for="opt4" id="labelD">Option D</label>
+          </div>
+        </form>
+        <!--
+        <form action="#">
+          <table class="centerTable">
+
+            <tr>
+              <td><input id="opt1" type="button" value="Option A" class="no-click"></td>
+              <td><input id="opt2" type="button" value="Option B" class="no-click"></td>
+              <td><input id="opt3" type="button" value="Option C" class="no-click"></td>
+              <td><input id="opt4" type="button" value="Option D" class="no-click"></td>
+            </tr>
+            <tr>
+              <td><input type="radio" id="optA" name="answer" value="A">
+                <label for="optA" id="labelA">Option A</label>
+              </td>
+              <td>
+                <input type="radio" id="optB" name="answer" value="B">
+                <label for="optB" id="labelB">Option B</label>
+              </td>
+              <td>
+                <input type="radio" id="optC" name="answer" value="C">
+                <label for="optC" id="labelC">Option C</label>
+              </td>
+              <td>
+                <input type="radio" id="optD" name="answer" value="D">
+                <label for="optD" id="labelD">Option D</label>
+              </td>
+            </tr>
+          </table>
+        -->
+
+          <!--First form element, for Next and Submit button.-->
+        <form action="#">
+          <!--<input id="nextButton" type="button" value="Next" />-->
+
+          <!--The submit button will check if the answer is correct, changing the score
+              Upgrades, After submission there is a time where user sees right or wrong and then website continues to next flashcard-->
+          <input id="submit" type="button" value="Submit" />
+        </form>
+  
+       
+      </div>
+    </section>
+
+
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+<footer>
+  <div class="content">
+    <div class="divFlexContainer">
+      <!--Navigation on Footer-->
+      <div class="footerDivColumn">
+        <a class="footerNav" href="">Home</a>
+      </div>
+
+      <!--Website Information-->
+      <div class="footerDivColumn">
+        <p>© 2026 Jose Ron Coka. All rights reserved.</p>
+      </div>
+
+      <!--Contact Information-->
+      <div class="footerDivColumn">
+        <p class="bold">Contact Information:</p>
+
+        <div class="footerLink">
+          <a href="mailto:joseroncoka@gmail.com" target="_blank">
+            <img class="logoLink" src="Assets/Images/Envelope.svg" alt="GitHub Logo" width="50" height="50">
+          </a>
+          <a href="https://github.com/JoseRonCoka?" target="_blank">
+            <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50"
+              height="50">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

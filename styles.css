@@ -1,0 +1,158 @@
+/*File: styles.css
+/*Project: Flashcard Geography Game. Originally Web Dev Class final project.
+/*Author: Jose Ron Coka
+/*History: Version 1.0 December 10, 2022. First Fully working prototype-->*/
+
+/* ||CSS Reset*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ||General Styles */
+body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            background-color: lightgray;}
+      img {text-align: center;
+            border:1px solid black;
+            max-width: 30em; 
+            max-height:30em;}
+
+      .center {text-align: center;}
+      .centerTable {margin-left: auto;
+                    margin-right: auto;}
+
+      .right {text-align: right;}
+
+      table {text-align: center;}
+
+      input {font-size: 20px;
+            background-color: gray;
+            color: white;}
+      .normal {background-color: gray;
+                pointer-events: none;}
+
+      .rightAnswer{background-color: green;
+                    pointer-events: none;}
+      .wrongAnswer{background-color: red;
+                    pointer-events: none;}
+
+      .no-click {pointer-events: none;}
+
+
+/* ||Layout Utilities */
+
+/*Content Wrapper*/
+.content{
+  width: 100%;
+  max-width: 1000px;
+  /*min-width: 350px;*/
+  margin: 0 auto;
+  border: red solid 2px;
+  padding: 1rem 0.5rem;
+}
+
+.divFlexContainer {
+  border: solid rgb(23, 138, 226);
+  display: flex;
+  /* space between panels */
+  gap: 1rem;
+  padding: 0.25rem 0.25rem;
+  width: 100%;
+  justify-content: center;
+  /* centre them horizontally */
+  align-items: center;
+
+}
+.divPanel {
+  padding: 0.5rem 1rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+footer div {
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;*/
+  text-align: justify;
+  padding: 0.25rem 0.25rem;
+  /*border: 2px black solid;*/
+  width: 100%;
+  text-decoration: none;
+
+  a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+
+  p{
+    margin-bottom: 0.5rem;
+  }
+}
+
+.footerDivColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: justify;
+  padding: 0.25rem 0.25rem;
+  /*border: 2px black solid;*/
+  width: 100%;
+  text-decoration: none;
+  margin:0;
+}
+
+.footerLink {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /*Horizontal alignment for logo links*/
+  align-items: center; /*Vertical alignment for logo links*/
+  gap: 1rem;
+}
+
+.footerNav hover{
+  text-decoration: underline;
+}
