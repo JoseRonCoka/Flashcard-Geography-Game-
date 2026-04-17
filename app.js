@@ -31,6 +31,9 @@ const imageShuffle = shuffle(20);
 const imageCorrect = imageShuffle.slice(0, 5);
 const imageOptions = imageShuffle.slice(5, 20);
 
+const username = localStorage.getItem("username");
+console.log(username);
+
 var mapName = [
   "South Korea",
   "Ecuador",

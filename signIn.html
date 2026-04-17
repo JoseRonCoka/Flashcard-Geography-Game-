@@ -61,35 +61,38 @@ History: Version 1.0 April 16, 2026-->
     <div class="content">
       <h3>Welcome to the Flash Card Creator </h3>
       <p>
-        In order to create flashcards, you must first sign up for an account.</p>
-      Please fill the form below.
+        Sign into your account below.
       </p>
     </div>
 
   </section>
 
   <!--Takes input from form-->
-  <section class="inputSignUp">
+  <section class="inputSignIn">
     <div class="content">
 
       <div>
-        <form id="signUpForm">
-          <h3>Sign Up Form</h3>
+        <form action="#" id="signInForm">
+          <h3>Sign In Form</h3>
           <label for="email">Enter your Email:</label>
           <input type="email" id="email" name="email" maxlength="100" size="20"><br><br>
-          <label for="username">Enter your Username:</label>
-          <input type="text" id="username" name="username" maxlength="100" size="20"><br></br>
+          <!--
+            <label for="username">Enter your Username:</label>
+            <input type="text" id="username" name="username" maxlength="100" size="20"><br></br>-->
           <label for="password">Enter your Password:</label>
           <input type="password" id="password" name="password" maxlength="100" size="20"><br></br>
 
-          <button id="signUpButton" type="submit">Sign Up</button>
-        </form>
-      </div>
+          <button id="signInButton" type="submit">Sign In</button>
 
-      <p>
-        Already have an account?
-        <a href="signin.html">Sign in</a>
-      </p>
+
+          <p id="flag"></p>
+        </form>
+
+        <p>
+          Don’t have an account?
+          <a href="signup.html">Sign up</a>
+        </p>
+      </div>
 
 
     </div>
