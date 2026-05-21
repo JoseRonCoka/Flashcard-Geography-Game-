@@ -17,80 +17,49 @@ export default {
 	},
 } satisfies ExportedHandler<Env>;*/
 
+import { handleSignup } from './handlers/signup';
+import { handleSignin } from './handlers/signin';
+import { corsHeaders } from './utils/cors';
+
 export interface Env {
 	// If you set another name in the Wrangler config file for the value for 'binding',
 	// replace "DB" with the variable name you defined.
 	flashcard_d1_database: D1Database;
 }
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
 export default {
-	async fetch(request, env): Promise<Response> {
-		const { pathname } = new URL(request.url);
+	async fetch(request: Request, env: Env): Promise<Response> {
+
+
+		const url = new URL(request.url);
 
 		// Handle preflight request
 		if (request.method === 'OPTIONS') {
 			return new Response(null, {
-				headers: {
-          ...corsHeaders,
-				},
+				headers: corsHeaders,
 			});
 		}
 
     //Sign Up Handler Code
-		if (request.method === 'POST' && new URL(request.url).pathname === '/api/signup') {
-			const { email, username, password } = (await request.json()) as {
-				email: string;
-				username: string;
-				password: string;
-			};
-
-			await env.flashcard_d1_database
-				.prepare('INSERT INTO users (email, username, password) VALUES (?, ?, ?)')
-				.bind(email, username, password)
-				.run();
-
-			return new Response(JSON.stringify({ success: true }), {
-        headers: corsHeaders
-      });
+		if (request.method === 'POST' && url.pathname === '/api/signup') {
+	  		return handleSignup(request, env);
 		} 
 			
     //return new Response('Not found', { status: 404 });
 		
 
     //Sign In Handler Code
-    if (request.method === 'POST' && new URL(request.url).pathname === '/api/signin') {
-			const { email, password } = (await request.json()) as {
-				email: string;
-				password: string;
-			};
+    if (request.method === 'POST' && url.pathname === '/api/signin') {
 
-			const { results } = await env.flashcard_d1_database.prepare(
-				"SELECT * FROM users WHERE email = ? AND password = ?"
-			)
-				.bind(email, password)
-				.run();
+		return handleSignin(request, env);
+	}
 
-			if (results.length === 0) {
-				return new Response(JSON.stringify({ error: 'Invalid email or password' }), {
-          status: 401,
-          headers: corsHeaders
+	return new Response('Not found', {
+            status: 404,
+            headers: corsHeaders
         });
-      }
-
-			return new Response(JSON.stringify(results[0]),{
-        headers: corsHeaders
-      });
-		} else {
-			return new Response('Not found', { status: 404, headers: corsHeaders });
-		}
-	},
-} satisfies ExportedHandler<Env>;
+}
+};
 
 
 /*

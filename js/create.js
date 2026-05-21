@@ -1,68 +1,69 @@
-/*File: app.js
+/*File: create.js
 Project: Flashcard Geography Game. Originally Web Dev Class final project.
 Author: Jose Ron Coka
-History: Version 1.0 April 17, 2026. Finalized upgraded version*/
-
-
-document.addEventListener('submit', (e) => {
-  console.log("GLOBAL SUBMIT DETECTED", e.target);
-});
-
-window.addEventListener('beforeunload', () => {
-  console.log("PAGE IS RELOADING");
-});
+History: Version 1.0 May 20, 2026.*/
 
 function start() {
 
-  let i = 0;
 
-setInterval(() => {
-  console.log("Running...", i++);
-}, 1000);
-  
-  console.log("UserJS loaded");
-  const signUpForm = document.getElementById('signUpForm');
-  const signInForm = document.getElementById('signInForm');
+  const submitFlashcardForm = document.getElementById('submitFlashcard');
 
-  if (signUpForm) {
-    signUpForm.addEventListener('submit', async (e) => {
+  if (submitFlashcardForm) {
+    submitFlashcardForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      await signUp();
-      console.log("Form submitted");
+      await submitFlashcard();
+      console.log("Flashcard Submitted");
   
     });
-  }
-
-  if (signInForm) {
-  signInForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    await signIn();
-    console.log("Form submitted");
-  });
+  
 }
 
   
 }
 
 
-async function signUp() {
-  console.log("Sign Up function called");
-  // Implement sign-up logic here
+async function submitFlashcard() {
+
+  console.log("Submit Flashcard function called");
   
-    //e.preventDefault();
+  // Implement submit flashcard logic here
+    
+  //iterate through 10 question inputs and add to array if not empty
+    const questions = [];
 
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    for (let i = 1; i <= 10; i++) {
+        const input = document.getElementById(`question${i}`);
+        
+        // Skip empty inputs
+        if (input && input.value.trim() !== "") {
+            questions.push(input.value.trim());
+        }
+    }
 
-    //send fetch request to worker url
+    console.log(questions);
 
-    const res = await fetch('http://127.0.0.1:8787/api/signup', {
+  //Iterate through 10 answer inputs and add to array if not empty
+    const answers = []; 
+
+    for (let i = 1; i <= 10; i++) {
+        const input = document.getElementById(`answer${i}`);
+        
+        // Skip empty inputs
+        if (input && input.value.trim() !== "") {
+            answers.push(input.value.trim());
+        }
+    }
+
+    console.log(answers);
+
+  //send fetch request to worker url
+
+    const res = await fetch('http://127.0.0.1:8787/api/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, username, password })
+      body: JSON.stringify({ questions, answers })
     });
 
     const data = await res.json();

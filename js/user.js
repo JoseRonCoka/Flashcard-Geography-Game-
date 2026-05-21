@@ -1,31 +1,54 @@
-/*File: create.js
+/*File: user.js
 Project: Flashcard Geography Game. Originally Web Dev Class final project.
 Author: Jose Ron Coka
-History: Version 1.0 May 13, 2026. Finalized upgraded version*/
+History: Version 1.0 April 17, 2026. Finalized upgraded version*/
+
+
+document.addEventListener('submit', (e) => {
+  console.log("GLOBAL SUBMIT DETECTED", e.target);
+});
+
+window.addEventListener('beforeunload', () => {
+  console.log("PAGE IS RELOADING");
+});
 
 function start() {
 
+  let i = 0;
 
-  const submitFlashcardForm = document.getElementById('submitFlashcard');
+setInterval(() => {
+  console.log("Running...", i++);
+}, 1000);
+  
+  console.log("UserJS loaded");
+  const signUpForm = document.getElementById('signUpForm');
+  const signInForm = document.getElementById('signInForm');
 
-  if (submitFlashcardForm) {
-    submitFlashcardForm.addEventListener('submit', async (e) => {
+  if (signUpForm) {
+    signUpForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      await submitFlashcard();
-      console.log("Flashcard Submitted");
+      await signUp();
+      console.log("Form submitted");
   
     });
-  
+  }
+
+  if (signInForm) {
+  signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await signIn();
+    console.log("Form submitted");
+  });
 }
 
   
 }
 
 
-async function submitFlashcard() {
-  console.log("Submit Flashcard function called");
-  // Implement submit flashcard logic here
-
+async function signUp() {
+  console.log("Sign Up function called");
+  // Implement sign-up logic here
+  
     //e.preventDefault();
 
     const email = document.getElementById('email').value;
